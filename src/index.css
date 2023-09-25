@@ -110,3 +110,31 @@ h3 {
 .close:hover {
   color: #11009e;
 }
+
+@media screen and (max-width: 600px) {
+  .steps {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .numbers {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .numbers > div {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    margin: 5px;
+  }
+
+  .buttons {
+    flex-direction: row;
+  }
+
+  .buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,95 @@
+.quiz-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Define styles for the "Open Quiz" button */
+.close {
+  background-color: #11009e;
+  color: #120202;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Define styles for the quiz content */
+.quiz-content {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Define styles for the step indicators */
+.numbers {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.numbers div {
+  width: 20px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Active step indicator */
+.numbers div.active {
+  background-color: #11009e;
+  color: #110101;
+}
+
+/* Define styles for the quiz message/question */
+.message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Define styles for option buttons */
+.option-button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Define styles for navigation buttons */
+.prev-button,
+.next-button,
+.submit-button {
+  background-color: #11009e;
+  color: #070101;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  margin: 10px;
+}
+
+/* Disable previous button when not applicable */
+.prev-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Add hover effect to buttons */
+.prev-button:hover,
+.next-button:hover,
+.submit-button:hover,
+.option-button:hover {
+  background-color: #222;
+}
