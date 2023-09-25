@@ -110,7 +110,10 @@ h3 {
 .close:hover {
   color: #11009e;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 @media screen and (max-width: 600px) {
   .steps {
     max-width: 100%;
@@ -138,3 +141,7 @@ h3 {
     font-size: 14px;
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
