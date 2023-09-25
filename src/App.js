@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import React, { useState } from "react";
 
 const quizData = [
   {
@@ -22,41 +23,49 @@ const quizData = [
     correctAnswer: "William Shakespeare",
   },
 ];
+
 export default function App() {
   const [step, setStep] = useState(1);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [score, setScore] = useState(0);
 
   const currentQuestion = quizData[step - 1];
 
-  function handlePrevious() {
+  const handlePrevious = () => {
     if (step > 1) setStep(step - 1);
-  }
+  };
 
-  function handleNext() {
-    if (step < 3) setStep(step + 1);
-  }
-  function handleAnswer(selectedAnswer) {
+  const handleNext = () => {
+    if (step < quizData.length) setStep(step + 1);
+  };
+
+  const handleAnswer = (selectedAnswer) => {
     if (selectedAnswer === currentQuestion.correctAnswer) {
       setScore(score + 1);
     }
     handleNext();
-  }
-  function handleSubmit() {
+  };
+
+  const handleSubmit = () => {
     alert(`Your Score: ${score}/${quizData.length}`);
-  }
+  };
 
   return (
     <>
       <button className="close" onClick={() => setIsOpen(!isOpen)}>
-        &times;
+        {isOpen ? "Close" : "Open Quiz"}
       </button>
       {isOpen && (
         <div className="steps">
           <div className="numbers">
-            <div className={`${step === 1 ? "active" : ""}`}>1</div>
-            <div className={`${step === 2 ? "active" : ""}`}>2</div>
-            <div className={`${step === 3 ? "active" : ""}`}>3</div>
+            {quizData.map((_, index) => (
+              <div
+                key={index}
+                className={`${step === index + 1 ? "active" : ""}`}
+              >
+                {index + 1}
+              </div>
+            ))}
           </div>
           <p className="message">
             Question {step}: {currentQuestion.question}
@@ -73,26 +82,15 @@ export default function App() {
             ))}
           </div>
           <div className="buttons">
-            {step > 1 ? (
+            {step > 1 && (
               <button
                 style={{ backgroundColor: "#11009E", color: "#fff" }}
                 onClick={handlePrevious}
               >
                 Previous
               </button>
-            ) : (
-              <button
-                style={{
-                  backgroundColor: "#11009E",
-                  color: "#fff",
-                  opacity: "0",
-                }}
-                onClick={handlePrevious}
-              >
-                Previous
-              </button>
             )}
-            {step < 3 && (
+            {step < quizData.length && (
               <button
                 style={{ backgroundColor: "#11009E", color: "#fff" }}
                 onClick={handleNext}
